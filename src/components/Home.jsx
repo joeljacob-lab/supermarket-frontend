@@ -18,48 +18,126 @@ const Home = () => {
 
       {/* Welcome Section */}
       <div className="shadow rounded bg-white p-5">
-        <h1 className="text-center">Welcome to SuperMart</h1>
-        <p className="text-center text-muted">
+        <h1 
+          className="text-center" 
+          style={{
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.1), 4px 4px 8px rgba(0, 0, 0, 0.05)",
+            fontWeight: "700"
+          }}
+        >
+          Welcome to SuperMart
+        </h1>
+        <p 
+          className="text-center text-muted" 
+          style={{
+            textShadow: "1px 1px 2px rgba(0, 0, 0, 0.08)"
+          }}
+        >
           Your one-stop destination for groceries and daily essentials.
         </p>
       </div>
 
-      {/* Features */}
-      <div className="row mt-5 text-center">
+      {/* Features Section */}
+      <div className="mt-5 pt-4 pb-4" style={{ backgroundColor: "#000000", borderRadius: "8px" }}>
+      
 
-        <div className="col-md-4 mb-3">
-          <div className="card border-0 shadow-sm h-100">
-            <div className="card-body">
-              <h5>🛒 Quality Products</h5>
-              <p className="text-muted mb-0">
-                Fresh and trusted products every day.
-              </p>
+        <div className="row px-3">
+          <div className="col-md-4 mb-4">
+            <div
+              className="card border-0 h-100 shadow-sm"
+              style={{
+                transition: "all 0.3s ease",
+                borderLeft: "4px solid #007bff",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 16px rgba(0, 123, 255, 0.15)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 2px 8px rgba(0, 0, 0, 0.1)";
+              }}
+            >
+              <div className="card-body text-center py-4">
+                <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
+                  🛒
+                </div>
+                <h5 className="fw-bold" style={{ color: "#2c3e50" }}>
+                  Quality Products
+                </h5>
+                <p className="text-muted small mb-0">
+                  Fresh and trusted products sourced from certified suppliers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-4 mb-4">
+            <div
+              className="card border-0 h-100 shadow-sm"
+              style={{
+                transition: "all 0.3s ease",
+                borderLeft: "4px solid #28a745",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 16px rgba(40, 167, 69, 0.15)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 2px 8px rgba(0, 0, 0, 0.1)";
+              }}
+            >
+              <div className="card-body text-center py-4">
+                <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
+                  💳
+                </div>
+                <h5 className="fw-bold" style={{ color: "#2c3e50" }}>
+                  Easy Shopping
+                </h5>
+                <p className="text-muted small mb-0">
+                  Simple checkout process with multiple secure payment options.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-4 mb-4">
+            <div
+              className="card border-0 h-100 shadow-sm"
+              style={{
+                transition: "all 0.3s ease",
+                borderLeft: "4px solid #ffc107",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 16px rgba(255, 193, 7, 0.15)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 2px 8px rgba(0, 0, 0, 0.1)";
+              }}
+            >
+              <div className="card-body text-center py-4">
+                <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
+                  🚚
+                </div>
+                <h5 className="fw-bold" style={{ color: "#2c3e50" }}>
+                  Fast Delivery
+                </h5>
+                <p className="text-muted small mb-0">
+                  Quick and reliable delivery to your doorstep.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="col-md-4 mb-3">
-          <div className="card border-0 shadow-sm h-100">
-            <div className="card-body">
-              <h5>💳 Easy Shopping</h5>
-              <p className="text-muted mb-0">
-                Simple and convenient shopping experience.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-4 mb-3">
-          <div className="card border-0 shadow-sm h-100">
-            <div className="card-body">
-              <h5>🚚 Fast Delivery</h5>
-              <p className="text-muted mb-0">
-                Get your essentials delivered on time.
-              </p>
-            </div>
-          </div>
-        </div>
-
       </div>
 
     </div>
