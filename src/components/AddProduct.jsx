@@ -59,161 +59,157 @@ const AddProduct = () => {
   };
 
   return (
-    <div>
-      <div className="container">
-        <div className="row">
-          <div className="col col-12">
-
-            <div className="row">
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Product ID</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="product_id"
-                  value={input.product_id}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Product Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="product_name"
-                  value={input.product_name}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Category</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="category"
-                  value={input.category}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Brand</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="brand"
-                  value={input.brand}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Quantity</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="quantity"
-                  value={input.quantity}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Unit Price</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="unit_price"
-                  value={input.unit_price}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Manufacturing Date</label>
-                <input
-                  type="date"
-                  className="form-control"
-                  name="manufacturing_date"
-                  value={input.manufacturing_date}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Expiry Date</label>
-                <input
-                  type="date"
-                  className="form-control"
-                  name="expiry_date"
-                  value={input.expiry_date}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Supplier Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="supplier_name"
-                  value={input.supplier_name}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Product Image URL</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="product_image_url"
-                  value={input.product_image_url}
-                  onChange={inputHandler}
-                />
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Stock Status</label>
-
-                <select
-                  className="form-control"
-                  name="stock_status"
-                  value={input.stock_status}
-                  onChange={inputHandler}
-                >
-                  <option value="">--Select Status--</option>
-                  <option value="In Stock">In Stock</option>
-                  <option value="Low Stock">Low Stock</option>
-                  <option value="Out of Stock">Out of Stock</option>
-                </select>
-              </div>
-
-              <div className="col col-12 col-sm-6">
-                <label className="form-label">Product Description</label>
-
-                <textarea
-                  className="form-control"
-                  name="product_description"
-                  value={input.product_description}
-                  onChange={inputHandler}
-                ></textarea>
-              </div>
-
-              <div className="col col-12 mt-3">
-                <button
-                  className="btn btn-primary"
-                  onClick={readValues}
-                >
-                  Add Product
-                </button>
-              </div>
-
+    <div
+      className="container-fluid"
+      style={{ backgroundColor: "#d6d6d6", minHeight: "100vh" }}
+    >
+      <div className="row">
+        <div className="col col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+          <div className="row g-3 p-5">
+            <div className="col col-sm-12">
+              <h2 className="text-center text-dark">ADD PRODUCT</h2>
             </div>
 
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Product ID</label>
+              <input
+                type="text"
+                className="form-control"
+                name="product_id"
+                value={input.product_id}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Product Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="product_name"
+                value={input.product_name}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Category</label>
+              <input
+                type="text"
+                className="form-control"
+                name="category"
+                value={input.category}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Brand</label>
+              <input
+                type="text"
+                className="form-control"
+                name="brand"
+                value={input.brand}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Quantity</label>
+              <input
+                type="text"
+                className="form-control"
+                name="quantity"
+                value={input.quantity}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Unit Price</label>
+              <input
+                type="text"
+                className="form-control"
+                name="unit_price"
+                value={input.unit_price}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Manufacturing Date</label>
+              <input
+                type="date"
+                className="form-control"
+                name="manufacturing_date"
+                value={input.manufacturing_date}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Expiry Date</label>
+              <input
+                type="date"
+                className="form-control"
+                name="expiry_date"
+                value={input.expiry_date}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Supplier Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="supplier_name"
+                value={input.supplier_name}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Product Image URL</label>
+              <input
+                type="text"
+                className="form-control"
+                name="product_image_url"
+                value={input.product_image_url}
+                onChange={inputHandler}
+              />
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Stock Status</label>
+              <select
+                className="form-control"
+                name="stock_status"
+                value={input.stock_status}
+                onChange={inputHandler}
+              >
+                <option value="">--Select Status--</option>
+                <option value="In Stock">In Stock</option>
+                <option value="Low Stock">Low Stock</option>
+                <option value="Out of Stock">Out of Stock</option>
+              </select>
+            </div>
+
+            <div className="col col-sm-12 col-md-6">
+              <label className="form-label">Product Description</label>
+              <textarea
+                className="form-control"
+                name="product_description"
+                value={input.product_description}
+                onChange={inputHandler}
+              ></textarea>
+            </div>
+
+            <div className="col col-12 mt-3">
+              <button className="btn btn-primary" onClick={readValues}>
+                Add Product
+              </button>
+            </div>
           </div>
         </div>
       </div>
