@@ -1,11 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import UpdateOfferModal from "./UpdateOfferModal";
 
 const ViewOffer = () => {
 
     const [data, changeData] = useState([]);
+    const [searchText, setSearchText] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
+    const [selectedOffer, setSelectedOffer] = useState(null);
 
     const fetchData = () => {
+        setIsLoading(true);
 
         axios.post("http://localhost:3000/view_offer", {})
             .then((response) => {
@@ -13,8 +19,52 @@ const ViewOffer = () => {
             })
             .catch((error) => {
                 console.log(error);
+                alert("Failed to load offers");
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
+    };
 
+    const searchOffers = () => {
+        setIsLoading(true);
+
+        axios.post("http://localhost:3000/search_offer", { search: searchText })
+            .then((response) => {
+                changeData(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("Failed to search offers");
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    };
+
+    const deleteOffer = (offerId) => {
+        if (!window.confirm("Delete this offer?")) {
+            return;
+        }
+
+        axios.post("http://localhost:3000/delete_offer", { offer_id: offerId })
+            .then((response) => {
+                alert("Offer deleted successfully!");
+                fetchData();
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("Failed to delete offer. Please try again.");
+            });
+    };
+
+    const updateOffer = (offer) => {
+        setSelectedOffer(offer);
+        setShowUpdateModal(true);
+    };
+
+    const handleUpdateSuccess = () => {
+        fetchData();
     };
 
     useEffect(() => {
@@ -32,6 +82,23 @@ const ViewOffer = () => {
                     <h2 className="text-center mt-4 mb-4">
                         <b>VIEW OFFERS</b>
                     </h2>
+
+                    <div className="mb-3 d-flex gap-2 align-items-center">
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Search by offer name, type or coupon code"
+                            value={searchText}
+                            onChange={(e) => setSearchText(e.target.value)}
+                        />
+                        <button className="btn btn-primary" onClick={searchOffers}>
+                            Search
+                        </button>
+                        <button className="btn btn-secondary" onClick={fetchData}>
+                            Reset
+                        </button>
+                        {isLoading && <span className="text-muted">Loading...</span>}
+                    </div>
 
                     <div className="table-responsive">
 
@@ -51,6 +118,7 @@ const ViewOffer = () => {
                                     <th>Coupon Code</th>
                                     <th>Status</th>
                                     <th>Description</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
 
@@ -72,6 +140,20 @@ const ViewOffer = () => {
                                                 <td>{value.coupon_code}</td>
                                                 <td>{value.status}</td>
                                                 <td>{value.offer_description}</td>
+                                                <td>
+                                                    <button
+                                                        className="btn btn-sm btn-danger me-2"
+                                                        onClick={() => deleteOffer(value.offer_id)}
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                    <button
+                                                        className="btn btn-sm btn-warning"
+                                                        onClick={() => updateOffer(value)}
+                                                    >
+                                                        Update
+                                                    </button>
+                                                </td>
                                             </tr>
                                         );
                                     })
@@ -85,6 +167,14 @@ const ViewOffer = () => {
 
                 </div>
             </div>
+
+            {showUpdateModal && (
+                <UpdateOfferModal
+                    offer={selectedOffer}
+                    onClose={() => setShowUpdateModal(false)}
+                    onSuccess={handleUpdateSuccess}
+                />
+            )}
         </div>
     );
 };
